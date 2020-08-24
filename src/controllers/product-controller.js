@@ -4,11 +4,13 @@ const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
 const Product = mongoose.model("Product");
+const repository = require("../repositories/product-repository")
 
 exports.get = (req, res, next) => {
-  Product.find({ active: true }, "title price slug").then((data) => {
-    res.status(201).send(data);
-  });
+  repository.get()
+    .then((data) => {
+      res.status(201).send(data);
+    });
 };
 
 exports.post = (req, res, next) => {
