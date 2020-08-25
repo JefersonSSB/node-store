@@ -21,6 +21,6 @@ exports.getById = async (id) => {
 }
 
 exports.get = async () => {
-    const res = await Customer.find({}, 'name email password');
+    const res = await Customer.find({}, 'name email');
     return res;
 }

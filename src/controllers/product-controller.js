@@ -1,7 +1,7 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const ValidationContract = require('../validators/validators');
+const ValidationContract = require('../validators/validator');
 const express = require("express");
 const router = express.Router();
 const Product = mongoose.model("Product");
@@ -45,7 +45,6 @@ exports.post = async (req, res, next) => {
   }
 
   try {
-    // Salva a imagem
     await repository.create(req.body);
     res.status(201).send({
       message: 'Produto cadastrado com sucesso!'
